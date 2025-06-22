@@ -51,9 +51,6 @@ class DummySession:
 
 @pytest.fixture(autouse=True)
 def override_get_session():
-    """
-    בולעים כל קריאה ל־get_session ומחזירים DummySession עם BASE_PURCHASES.
-    """
     app.dependency_overrides[get_session] = lambda: DummySession(list(BASE_PURCHASES))
     yield
     app.dependency_overrides.clear()
