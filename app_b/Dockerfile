@@ -1,0 +1,9 @@
+FROM python:3.9-slim
+WORKDIR /app
+ENV PYTHONPATH=/app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY src/ src/
+COPY tests/ tests/
+EXPOSE 8001
+CMD ["python", "-m", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8001"]

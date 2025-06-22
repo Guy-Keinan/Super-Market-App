@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+asyncpg
+databases
+SQLAlchemy>=1.4
+
+# Test / dev dependencies
+pytest
+httpx
+pytest-asyncio
