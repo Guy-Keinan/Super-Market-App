@@ -2,6 +2,9 @@
 
 Microservices application deployed with Docker Compose, simulating a Point Of Sale (POS Simulator) and a Reporting Service for a supermarket chain.
 
+## Note
+- Both apps share the same database schema but operate as independent microservices.
+
 
 ## Prerequisites
 
