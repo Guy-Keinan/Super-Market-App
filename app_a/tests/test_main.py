@@ -5,7 +5,6 @@ from src.models import Product
 
 client = TestClient(app)
 
-# Dummy products list
 DUMMY_PRODUCTS = [
     Product(name="milk", unit_price=1.5),
     Product(name="bread", unit_price=2.0),
@@ -31,7 +30,6 @@ class DummySession:
             return DummyResult(DUMMY_PRODUCTS)
         return DummyResult([])
 
-    # הכנסנו את המתודות החסרות
     def add(self, obj):
         pass
 
@@ -47,11 +45,6 @@ class DummySession:
 
 @pytest.fixture(autouse=True)
 def override_session():
-    """
-    בכל בדיקה, לפני יצירת ה–TestClient, נוסיף ל–app.dependency_overrides
-    שה–get_session המקורי יוחלף ב–fake_get_session.
-    """
-
     async def fake_get_session():
         yield DummySession()
 
